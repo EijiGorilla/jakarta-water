@@ -1,0 +1,64 @@
+import { useEffect, useState } from "react";
+import "../index.css";
+import "../App.css";
+import "@arcgis/map-components/dist/components/arcgis-map";
+import "@arcgis/map-components/components/arcgis-map";
+import "@arcgis/map-components/components/arcgis-zoom";
+import "@arcgis/map-components/components/arcgis-legend";
+import "@arcgis/map-components/components/arcgis-basemap-gallery";
+import "@arcgis/map-components/components/arcgis-layer-list";
+import "@arcgis/map-components/components/arcgis-expand";
+import "@arcgis/map-components/components/arcgis-placement";
+import "@arcgis/map-components/components/arcgis-search";
+import "@arcgis/map-components/components/arcgis-compass";
+import {
+  hot_spot_layer,
+  sar_points_layer,
+  admin_boundary_kabupaten_for_scenario,
+  admin_boundary_groupLayer,
+  layerInfos_sar,
+} from "../layers";
+import "@esri/calcite-components/dist/components/calcite-button";
+
+function MapDisplay() {
+  const [mapView, setMapView] = useState();
+  const arcgisMap = document.querySelector("arcgis-map");
+  //   const arcgisSearch = document.querySelector("arcgis-search");
+
+  // Legend
+  const arcgisMapLegend = document.querySelector("arcgis-legend");
+
+  useEffect(() => {
+    if (mapView) {
+      arcgisMap.map.add(admin_boundary_groupLayer);
+      arcgisMap.map.add(admin_boundary_kabupaten_for_scenario);
+      arcgisMap.map.add(sar_points_layer);
+      arcgisMap.map.add(hot_spot_layer);
+      arcgisMap.view.ui.components = [];
+
+      // Legend
+      arcgisMapLegend.layerInfos = layerInfos_sar;
+      arcgisMapLegend.hideLayersNotInCurrentView = false;
+      arcgisMapLegend.respectLayerVisibilityDisabled = true;
+    }
+  });
+
+  return (
+    <arcgis-map
+      // item-id="5ba14f5a7db34710897da0ce2d46d55f"
+      basemap="satellite"
+      ground="world-elevation"
+      //   viewingMode="local"
+      zoom="11"
+      center="106.8244387, -6.2392965"
+      onarcgisViewReadyChange={(event) => {
+        setMapView(event.target);
+      }}
+    >
+      {/* Legend */}
+      <arcgis-legend slot="bottom-left" id="arcgis-map-legend"></arcgis-legend>
+    </arcgis-map>
+  );
+}
+
+export default MapDisplay;
