@@ -29,7 +29,6 @@ export default function ChartFutureDisplacement() {
   const xAxisRef = useRef<unknown | any | undefined>({});
   const yAxisRef = useRef<unknown | any | undefined>({});
   const chartRef = useRef<unknown | any | undefined>({});
-  const legendRef = useRef<unknown | any | undefined>({});
   const [chartData, setChartData] = useState([]);
   const [exportExcel, setExportExcel] = useState<any>(false);
 
@@ -344,8 +343,6 @@ export default function ChartFutureDisplacement() {
       <div
         id="chartAlignDiv"
         style={{
-          // display: 'flex',
-          // border: 'solid 1px gray',
           marginRight: "10px",
           marginLeft: "10px",
         }}
@@ -362,7 +359,6 @@ export default function ChartFutureDisplacement() {
             <div
               style={{
                 marginRight: "11vw",
-                // display: informationWidget === true ? "none" : "block",
               }}
             >
               Admin. Boundary:{" "}
@@ -376,7 +372,6 @@ export default function ChartFutureDisplacement() {
           <span
             style={{
               color: "white",
-              //   fontSize: informationWidget === true ? "10px" : "14px",
               position: "absolute",
               zIndex: "2",
               top: "40%",

@@ -48,7 +48,6 @@ export default function ChartDisplacementRecord() {
   }, [referenceid]);
 
   useEffect(() => {
-    // if (referencePointData) {
     generateChartData(selectedid, newdates, referencePointData).then(
       (response: any) => {
         setChartData(response[0]);

@@ -125,7 +125,6 @@ function ActionPanel() {
           referenceElement="arcgis-map"
           selectionMode="multiple"
           visibilityAppearance="checkbox"
-          // show-collapse-button
           show-filter
           filter-placeholder="Filter layers"
           listItemCreatedFunction={defineActions}

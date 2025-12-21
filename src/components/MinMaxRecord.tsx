@@ -93,8 +93,6 @@ export default function MinMaxRecord() {
       style={{
         display: "flex",
         marginBottom: margin_bottom_title_item,
-        // marginLeft: margin_left_pane_title,
-        // marginRight: margin_left_pane_title,
         justifyContent: "space-between",
 
         marginRight: "auto",

@@ -19,14 +19,13 @@ import {
   layerInfos_sar,
 } from "../layers";
 import "@esri/calcite-components/dist/components/calcite-button";
+import { object_id } from "../uniqueValues";
 
 function MapDisplay() {
   const [mapView, setMapView] = useState();
   const arcgisMap = document.querySelector("arcgis-map");
-  //   const arcgisSearch = document.querySelector("arcgis-search");
-
-  // Legend
   const arcgisMapLegend = document.querySelector("arcgis-legend");
+  const arcgisSearch = document.querySelector("arcgis-search");
 
   useEffect(() => {
     if (mapView) {
@@ -35,6 +34,20 @@ function MapDisplay() {
       arcgisMap.map.add(sar_points_layer);
       arcgisMap.map.add(hot_spot_layer);
       arcgisMap.view.ui.components = [];
+
+      arcgisSearch.sources = [
+        {
+          layer: sar_points_layer,
+          searchFields: [object_id],
+          displayField: object_id,
+          exactMatch: false,
+          outFields: [object_id],
+          name: "ID",
+          placeholder: "ID",
+        },
+      ];
+      arcgisSearch.includeDefaultSourcesDisabled = true;
+      arcgisSearch.locationDisabled = true;
 
       // Legend
       arcgisMapLegend.layerInfos = layerInfos_sar;
@@ -55,6 +68,7 @@ function MapDisplay() {
         setMapView(event.target);
       }}
     >
+      <arcgis-search slot="top-right"></arcgis-search>
       {/* Legend */}
       <arcgis-legend slot="bottom-left" id="arcgis-map-legend"></arcgis-legend>
     </arcgis-map>

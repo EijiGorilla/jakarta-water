@@ -53,7 +53,6 @@ export default function VisibleLayers() {
       style={{
         marginBottom: "20px",
         marginLeft: margin_left_pane_item,
-        // marginRight: margin_right_pane_item,
       }}
       scale="m"
       onCalciteSegmentedControlChange={(event: any) => {
@@ -68,7 +67,6 @@ export default function VisibleLayers() {
               key={index}
               value={layer}
               id={layer}
-              // style={{ width: "100px" }}
             >
               {layer}
             </CalciteSegmentedControlItem>
