@@ -78,7 +78,6 @@ export default function DatePicker() {
         fontSize: "20px",
         marginLeft: "25px",
         marginRight: "auto",
-        // width: "20%",
       }}
     >
       <CalciteDropdown width="m" style={{ marginRight: "4%" }}>

@@ -5,6 +5,7 @@ import { SimpleMarkerSymbol, SimpleFillSymbol } from "@arcgis/core/symbols";
 import {
   admin_boudnary_layer_title,
   color_hotspot,
+  dates_sar,
   label_hotspot,
   values_hotspot,
   view_maxScale,
@@ -35,7 +36,7 @@ export const sar_points_layer = new FeatureLayer({
   title: sar_point_layer_title,
   elevationInfo: {
     featureExpressionInfo: {
-      expression: "$feature.dispr_mmyr",
+      expression: "$feature." + "dispr_mmyr", // `$feature[${elevField}]`,
     },
     mode: "relative-to-scene",
   },

@@ -107,7 +107,7 @@ function ActionPanel() {
       <CalcitePanel
         heading="Main Pane"
         data-panel-id="mainq"
-        style={{ width: "20.8vw" }}
+        style={{ width: "330px" }}
         hidden
       >
         <div
@@ -116,7 +116,7 @@ function ActionPanel() {
             color: secondary_color,
             marginBottom: margin_bottom_title_item,
             marginLeft: margin_left_pane_title,
-            marginTop: "10px",
+            marginTop: "2vh",
           }}
         >
           Time Period:
@@ -129,7 +129,7 @@ function ActionPanel() {
             color: secondary_color,
             marginBottom: margin_bottom_title_item,
             marginLeft: margin_left_pane_title,
-            marginTop: "20px",
+            marginTop: "3vh",
           }}
         >
           Admin. Boundary Layers:
@@ -147,7 +147,7 @@ function ActionPanel() {
           style={{
             fontSize: action_pane_title_font_size,
             marginLeft: margin_left_pane_title,
-            marginTop: "20px",
+            marginTop: "2vh",
             marginBottom: margin_bottom_title_item,
             color: secondary_color,
           }}

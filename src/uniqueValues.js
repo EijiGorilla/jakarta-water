@@ -318,7 +318,7 @@ export const action_pane_title_font_size = "16px";
 export const margin_left_pane_title = "7px";
 export const margin_left_pane_item = "20px";
 export const margin_right_pane_item = "5px";
-export const margin_bottom_title_item = "5px";
+export const margin_bottom_title_item = "0.6vh";
 
 // Chart Panel
 export const chart_div_height = "30vh";

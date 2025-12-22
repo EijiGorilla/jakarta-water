@@ -92,9 +92,9 @@ export default function MinMaxRecord() {
     <div
       style={{
         display: "flex",
+        marginTop: "3vh",
         marginBottom: margin_bottom_title_item,
         justifyContent: "space-between",
-
         marginRight: "auto",
         marginLeft: "auto",
       }}

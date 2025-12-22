@@ -51,7 +51,6 @@ export default function VisibleLayers() {
   return (
     <CalciteSegmentedControl
       style={{
-        marginBottom: "20px",
         marginLeft: margin_left_pane_item,
       }}
       scale="m"

@@ -38,7 +38,7 @@ function MapDisplay() {
       arcgisMap.map.add(hot_spot_layer);
       arcgisMap.view.ui.components = [];
       arcgisMap.map.ground.navigationConstraint = "none";
-      arcgisMap.map.ground.opacity = 0.5;
+      arcgisMap.map.ground.opacity = 0.6;
 
       arcgisSearch.sources = [
         {
