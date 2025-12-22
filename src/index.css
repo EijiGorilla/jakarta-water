@@ -4,7 +4,12 @@ body {
   margin: 0;
 }
 
-arcgis-map {
+/* arcgis-map {
   display: block;
   height: 100vh;
 }
+
+arcgis-scene {
+  display: block;
+  height: 100vh;
+} */

@@ -15,8 +15,8 @@ import {
 import { MyContext } from "../App";
 
 export default function MinMaxRecord() {
-  const arcgisMap = document.querySelector("arcgis-map");
-  const { newdates, referenceid } = use(MyContext);
+  const { viewchange, newdates, referenceid } = use(MyContext);
+  const arcgisMap = document.querySelector(viewchange);
 
   const [referencePointData, setReferencePointData] = useState<any>();
   const [minRecord, setMinRecord] = useState<any>();

@@ -2,6 +2,7 @@ import { use, useEffect, useState } from "react";
 import "../index.css";
 import "../App.css";
 import "@arcgis/map-components/dist/components/arcgis-map";
+import "@arcgis/map-components/dist/components/arcgis-scene";
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-zoom";
 import "@arcgis/map-components/components/arcgis-legend";
@@ -24,12 +25,6 @@ import { MyContext } from "../App";
 
 function MapDisplay() {
   const { viewchange } = use(MyContext);
-  const [viewState, setViewState] = useState("arcgis-map");
-
-  useEffect(() => {
-    setViewState(viewchange);
-  }, [viewchange]);
-
   const [mapView, setMapView] = useState();
   const arcgisMap = document.querySelector(viewchange);
   const arcgisMapLegend = document.querySelector("arcgis-legend");
@@ -42,6 +37,8 @@ function MapDisplay() {
       arcgisMap.map.add(sar_points_layer);
       arcgisMap.map.add(hot_spot_layer);
       arcgisMap.view.ui.components = [];
+      arcgisMap.map.ground.navigationConstraint = "none";
+      arcgisMap.map.ground.opacity = 0.5;
 
       arcgisSearch.sources = [
         {
@@ -62,11 +59,11 @@ function MapDisplay() {
       arcgisMapLegend.hideLayersNotInCurrentView = false;
       arcgisMapLegend.respectLayerVisibilityDisabled = true;
     }
-  });
+  }, [mapView]);
 
   return (
     <>
-      {viewState === "arcgis-map" ? (
+      {viewchange === "arcgis-map" ? (
         <arcgis-map
           basemap="satellite"
           ground="world-elevation"
@@ -78,6 +75,7 @@ function MapDisplay() {
           }}
         >
           <arcgis-search slot="top-right"></arcgis-search>
+
           {/* Legend */}
           <arcgis-legend
             slot="bottom-left"
@@ -96,6 +94,7 @@ function MapDisplay() {
           }}
         >
           <arcgis-search slot="top-right"></arcgis-search>
+
           {/* Legend */}
           <arcgis-legend
             slot="bottom-left"

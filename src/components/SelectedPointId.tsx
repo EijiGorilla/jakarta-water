@@ -9,7 +9,8 @@ import { object_id } from "../uniqueValues";
 import { MyContext } from "../App";
 
 export default function SelectedPointId() {
-  const arcgisMap = document.querySelector("arcgis-map");
+  const { viewchange } = use(MyContext);
+  const arcgisMap = document.querySelector(viewchange);
   const {
     updateSelectedid,
     updateSelectedkabupaten,

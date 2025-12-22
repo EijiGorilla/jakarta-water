@@ -186,12 +186,13 @@ function App() {
               updateViewchange,
             }}
           >
+            <ViewSwitch />
             <ActionPanel />
+
             <MapDisplay />
             <ChartPanel />
             <SelectedPointId />
             <ExportExcel />
-            {/* <ViewSwitch /> */}
           </MyContext>
         </CalciteShell>
       ) : (

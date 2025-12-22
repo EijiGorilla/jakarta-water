@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import "../App.css";
 import "@esri/calcite-components/dist/components/calcite-panel";
 import "@esri/calcite-components/dist/components/calcite-list-item";
@@ -24,8 +24,10 @@ import VisibleLayers from "./VisibleLayers";
 import MinMaxRecord from "./MinMaxRecord";
 import ReferencePointSubtraction from "./ReferencePointSubtraction";
 import { layerInfos_sar } from "../layers";
+import { MyContext } from "../App";
 
 function ActionPanel() {
+  const { viewchange } = use(MyContext);
   // const arcgisMapLegend = document.querySelector("arcgis-legend");
   const [activeWidget, setActiveWidget] = useState(null);
   const [nextWidget, setNextWidget] = useState(null);
@@ -133,7 +135,7 @@ function ActionPanel() {
           Admin. Boundary Layers:
         </div>
         <arcgis-layer-list
-          referenceElement="arcgis-map"
+          referenceElement={viewchange}
           selectionMode="multiple"
           visibilityAppearance="checkbox"
           show-filter

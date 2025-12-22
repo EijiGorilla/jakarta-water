@@ -18,11 +18,8 @@ import { MyContext } from "../App";
 import { updateRendererForSymbology } from "../Query";
 
 export default function DatePicker() {
-  const { startyear, updateStartyear, updateEndyear, updateNewdates } =
+  const { startyear, endyear, updateStartyear, updateEndyear, updateNewdates } =
     use(MyContext);
-  const [startYear, setStartYear] = useState<any>("2015");
-  const [endYear, setEndYear] = useState<any>("2023");
-  const [newdates, setNewDates] = useState<any>(dates_sar);
 
   const [startYearsDropdown, setStartYearsDropdown] =
     useState<any>(years_dropdown);
@@ -30,42 +27,40 @@ export default function DatePicker() {
 
   // Update Date picked
   const handleStartYear = (obj: any) => {
-    setStartYear(obj);
     updateStartyear(obj);
   };
 
   const handleEndYear = (obj: any) => {
-    setEndYear(obj);
     updateEndyear(obj);
   };
 
   const handleNewDatesForChart = (obj: any) => {
-    setNewDates(obj);
     updateNewdates(obj);
   };
 
   useEffect(() => {
     // update end years list in dropdown list
     setEndYearsDropdown(
-      years_dropdown.filter((elem: any) => elem >= startYear)
+      years_dropdown.filter((elem: any) => elem >= startyear)
     );
     setStartYearsDropdown(
-      years_dropdown.filter((elem: any) => elem <= endYear)
+      years_dropdown.filter((elem: any) => elem <= endyear)
     );
 
     // identify the first date of the selected year from the date fields array
     // make sure to add 'x' to correctly filter by year
     const first_dates_x = dates_sar.filter((elem: any) =>
-      elem.includes("x".concat(startYear))
+      elem.includes("x".concat(startyear))
     );
     const last_dates_x = dates_sar.filter((elem: any) =>
-      elem.includes("x".concat(endYear))
+      elem.includes("x".concat(endyear))
     );
     const last_date = last_dates_x[last_dates_x.length - 1];
 
     // Get an index of the first and end date
     const first_date_index = dates_sar.indexOf(first_dates_x[0]);
     const end_date_index = dates_sar.indexOf(last_date);
+
     handleNewDatesForChart(
       dates_sar.slice(first_date_index, end_date_index + 1)
     );
@@ -74,7 +69,7 @@ export default function DatePicker() {
     updateRendererForSymbology(last_date).then((response: any) => {
       sar_points_layer.renderer = response;
     });
-  }, [startYear, endYear]);
+  }, [startyear, endyear]);
 
   return (
     <div
@@ -108,9 +103,9 @@ export default function DatePicker() {
             })}
         </CalciteDropdownGroup>
       </CalciteDropdown>
-      {startYear}
+      {startyear}
       <div style={{ marginLeft: "3%", marginRight: "3%" }}>{"-"}</div>
-      {endYear}
+      {endyear}
       <CalciteDropdown width="m" style={{ marginLeft: "4%" }}>
         <CalciteButton slot="trigger" kind="inverse" scale="s">
           <span style={{ color: "#ffffff" }}>End Year</span>

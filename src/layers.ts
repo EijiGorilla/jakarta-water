@@ -33,6 +33,12 @@ export const sar_points_layer = new FeatureLayer({
     lastEditInfoEnabled: false,
   },
   title: sar_point_layer_title,
+  elevationInfo: {
+    featureExpressionInfo: {
+      expression: "$feature.dispr_mmyr",
+    },
+    mode: "relative-to-scene",
+  },
 });
 sar_points_layer.listMode = "hide";
 // sar_points_layer.popupTemplate = templatePopup;
@@ -128,6 +134,9 @@ export const admin_boundary_kabupaten = new FeatureLayer({
   // renderer: admin_line_renderer,
   popupEnabled: false,
   title: admin_boudnary_layer_title[0],
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
 });
 
 const kabupaten_renderer_scenario = new SimpleRenderer({
@@ -153,6 +162,9 @@ export const admin_boundary_kabupaten_for_scenario = new FeatureLayer({
   // renderer: admin_line_renderer,
   popupEnabled: false,
   title: admin_boudnary_layer_title[0],
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
 });
 admin_boundary_kabupaten_for_scenario.listMode = "hide";
 
@@ -168,6 +180,9 @@ export const admin_boundary_kecamatan = new FeatureLayer({
   popupEnabled: false,
   // renderer: admin_line_renderer,
   title: admin_boudnary_layer_title[1],
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
 });
 
 export const admin_boundary_desa = new FeatureLayer({
@@ -180,6 +195,9 @@ export const admin_boundary_desa = new FeatureLayer({
   layerId: 2,
   popupEnabled: false,
   title: admin_boudnary_layer_title[2],
+  elevationInfo: {
+    mode: "on-the-ground",
+  },
 });
 
 // Scenario feature table
