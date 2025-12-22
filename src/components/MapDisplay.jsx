@@ -27,7 +27,7 @@ function MapDisplay() {
   const { viewchange } = use(MyContext);
   const [mapView, setMapView] = useState();
   const arcgisMap = document.querySelector(viewchange);
-  const arcgisMapLegend = document.querySelector("arcgis-legend");
+  // const arcgisMapLegend = document.querySelector("arcgis-legend");
   const arcgisSearch = document.querySelector("arcgis-search");
 
   useEffect(() => {
@@ -55,9 +55,9 @@ function MapDisplay() {
       arcgisSearch.locationDisabled = true;
 
       // Legend
-      arcgisMapLegend.layerInfos = layerInfos_sar;
-      arcgisMapLegend.hideLayersNotInCurrentView = false;
-      arcgisMapLegend.respectLayerVisibilityDisabled = true;
+      // arcgisMapLegend.layerInfos = layerInfos_sar;
+      // arcgisMapLegend.hideLayersNotInCurrentView = false;
+      // arcgisMapLegend.respectLayerVisibilityDisabled = true;
     }
   }, [mapView]);
 
@@ -77,10 +77,10 @@ function MapDisplay() {
           <arcgis-search slot="top-right"></arcgis-search>
 
           {/* Legend */}
-          <arcgis-legend
+          {/* <arcgis-legend
             slot="bottom-left"
             id="arcgis-map-legend"
-          ></arcgis-legend>
+          ></arcgis-legend> */}
         </arcgis-map>
       ) : (
         <arcgis-scene
@@ -96,10 +96,10 @@ function MapDisplay() {
           <arcgis-search slot="top-right"></arcgis-search>
 
           {/* Legend */}
-          <arcgis-legend
+          {/*<arcgis-legend
             slot="bottom-left"
             id="arcgis-map-legend"
-          ></arcgis-legend>
+          ></arcgis-legend>*/}
         </arcgis-scene>
       )}
     </>

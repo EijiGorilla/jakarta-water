@@ -28,7 +28,7 @@ import { MyContext } from "../App";
 
 function ActionPanel() {
   const { viewchange } = use(MyContext);
-  // const arcgisMapLegend = document.querySelector("arcgis-legend");
+  const arcgisMapLegend = document.querySelector("arcgis-legend");
   const [activeWidget, setActiveWidget] = useState(null);
   const [nextWidget, setNextWidget] = useState(null);
 
@@ -36,13 +36,13 @@ function ActionPanel() {
     setNextWidget("mainq");
   }, []);
 
-  // useEffect(() => {
-  //   if (arcgisMapLegend) {
-  //     arcgisMapLegend.layerInfos = layerInfos_sar;
-  //     arcgisMapLegend.hideLayersNotInCurrentView = false;
-  //     arcgisMapLegend.respectLayerVisibilityDisabled = true;
-  //   }
-  // });
+  useEffect(() => {
+    if (arcgisMapLegend) {
+      arcgisMapLegend.layerInfos = layerInfos_sar;
+      arcgisMapLegend.hideLayersNotInCurrentView = false;
+      arcgisMapLegend.respectLayerVisibilityDisabled = true;
+    }
+  });
 
   useEffect(() => {
     if (activeWidget) {
@@ -162,13 +162,21 @@ function ActionPanel() {
         <MinMaxRecord />
 
         {/* Subtract displacement from the reference point */}
-        <ReferencePointSubtraction />
+        {/* <ReferencePointSubtraction /> */}
 
         {/* Add Legend */}
-        {/* <arcgis-legend
-          referenceElement="arcgis-map"
-          id="arcgis-map-legend"
-        ></arcgis-legend> */}
+        <div
+          style={{
+            marginTop: "auto",
+            marginBottom: "auto",
+            marginLeft: "15px",
+          }}
+        >
+          <arcgis-legend
+            referenceElement={viewchange}
+            id="arcgis-map-legend"
+          ></arcgis-legend>
+        </div>
       </CalcitePanel>
 
       <CalcitePanel
