@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jakarta-water/static/css/main.95d12dd7.css",
-    "main.js": "/jakarta-water/static/js/main.06220496.js",
+    "main.js": "/jakarta-water/static/js/main.03fd5990.js",
     "static/js/20623.160a37f3.chunk.js": "/jakarta-water/static/js/20623.160a37f3.chunk.js",
     "static/js/34429.d90c8030.chunk.js": "/jakarta-water/static/js/34429.d90c8030.chunk.js",
     "static/js/74965.d0231b56.chunk.js": "/jakarta-water/static/js/74965.d0231b56.chunk.js",
@@ -620,7 +620,7 @@
     "static/media/09ab0626-bb45-4650-acc8-0182d693df02-hebrew.woff2": "/jakarta-water/static/media/09ab0626-bb45-4650-acc8-0182d693df02-hebrew.34f5f4ec364bd2996c4e.woff2",
     "index.html": "/jakarta-water/index.html",
     "main.95d12dd7.css.map": "/jakarta-water/static/css/main.95d12dd7.css.map",
-    "main.06220496.js.map": "/jakarta-water/static/js/main.06220496.js.map",
+    "main.03fd5990.js.map": "/jakarta-water/static/js/main.03fd5990.js.map",
     "20623.160a37f3.chunk.js.map": "/jakarta-water/static/js/20623.160a37f3.chunk.js.map",
     "34429.d90c8030.chunk.js.map": "/jakarta-water/static/js/34429.d90c8030.chunk.js.map",
     "74965.d0231b56.chunk.js.map": "/jakarta-water/static/js/74965.d0231b56.chunk.js.map",
@@ -1117,6 +1117,6 @@
   },
   "entrypoints": [
     "static/css/main.95d12dd7.css",
-    "static/js/main.06220496.js"
+    "static/js/main.03fd5990.js"
   ]
 }
