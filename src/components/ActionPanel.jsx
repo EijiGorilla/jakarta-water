@@ -5,6 +5,7 @@ import "@esri/calcite-components/dist/components/calcite-list-item";
 import "@esri/calcite-components/dist/components/calcite-shell-panel";
 import "@esri/calcite-components/dist/components/calcite-action";
 import "@esri/calcite-components/dist/components/calcite-action-bar";
+import "@arcgis/map-components/components/arcgis-legend";
 import {
   CalciteShellPanel,
   CalciteActionBar,
@@ -22,14 +23,24 @@ import DatePicker from "./DatePicker";
 import VisibleLayers from "./VisibleLayers";
 import MinMaxRecord from "./MinMaxRecord";
 import ReferencePointSubtraction from "./ReferencePointSubtraction";
+import { layerInfos_sar } from "../layers";
 
 function ActionPanel() {
+  // const arcgisMapLegend = document.querySelector("arcgis-legend");
   const [activeWidget, setActiveWidget] = useState(null);
   const [nextWidget, setNextWidget] = useState(null);
 
   useEffect(() => {
     setNextWidget("mainq");
   }, []);
+
+  // useEffect(() => {
+  //   if (arcgisMapLegend) {
+  //     arcgisMapLegend.layerInfos = layerInfos_sar;
+  //     arcgisMapLegend.hideLayersNotInCurrentView = false;
+  //     arcgisMapLegend.respectLayerVisibilityDisabled = true;
+  //   }
+  // });
 
   useEffect(() => {
     if (activeWidget) {
@@ -150,6 +161,12 @@ function ActionPanel() {
 
         {/* Subtract displacement from the reference point */}
         <ReferencePointSubtraction />
+
+        {/* Add Legend */}
+        {/* <arcgis-legend
+          referenceElement="arcgis-map"
+          id="arcgis-map-legend"
+        ></arcgis-legend> */}
       </CalcitePanel>
 
       <CalcitePanel

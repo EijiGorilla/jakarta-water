@@ -4,13 +4,12 @@ import { CalciteButton } from "@esri/calcite-components-react";
 import { MyContext } from "../App";
 
 export default function ExportExcel() {
-  const { updateClickedexportexcel } = use(MyContext);
-  const [exportExcel, setExportExcel] = useState<boolean>(false);
+  const { clickedexportexcel, updateClickedexportexcel } = use(MyContext);
 
   return (
     <CalciteButton
       onClick={() =>
-        updateClickedexportexcel(exportExcel === false ? true : false)
+        updateClickedexportexcel(clickedexportexcel === false ? true : false)
       }
       slot="trigger"
       scale="s"

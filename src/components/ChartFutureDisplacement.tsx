@@ -24,7 +24,8 @@ function maybeDisposeRoot(divId: any) {
 
 // https://www.amcharts.com/docs/v5/tutorials/dynamically-switching-data-set-for-an-xychart/
 export default function ChartFutureDisplacement() {
-  const { charttype, selectedareaforscenario } = use(MyContext);
+  const { charttype, clickedexportexcel, selectedareaforscenario } =
+    use(MyContext);
   const lineSeriesRef = useRef<unknown | any | undefined>({});
   const xAxisRef = useRef<unknown | any | undefined>({});
   const yAxisRef = useRef<unknown | any | undefined>({});
@@ -70,7 +71,7 @@ export default function ChartFutureDisplacement() {
       XLSX.utils.book_append_sheet(workbook, worksheet, "Scenario");
       XLSX.writeFile(workbook, file_name);
     }
-  }, [charttype]);
+  }, [clickedexportexcel]);
 
   useEffect(() => {
     maybeDisposeRoot(chartID);

@@ -17,6 +17,7 @@ import {
 import ChartPanel from "./components/ChartPanel";
 import SelectedPointId from "./components/SelectedPointId";
 import ExportExcel from "./components/ExportExcel";
+import ViewSwitch from "./components/ViewSwitch";
 
 type MyActionEventContextType = {
   startyear: any;
@@ -28,6 +29,7 @@ type MyActionEventContextType = {
   selectedkabupaten: any;
   selectedareaforscenario: any;
   clickedexportexcel: any;
+  viewchange: any;
   updateStartyear: any;
   updateEndyear: any;
   updateNewdates: any;
@@ -37,6 +39,7 @@ type MyActionEventContextType = {
   updateSelectedkabupaten: any;
   updateSelectedareforscenario: any;
   updateClickedexportexcel: any;
+  updateViewchange: any;
 };
 
 const initialState = {
@@ -49,6 +52,7 @@ const initialState = {
   selectedkabupaten: undefined,
   selectedareaforscenario: undefined,
   clickedexportexcel: undefined,
+  viewchange: undefined,
   updateStartyear: undefined,
   updateEndyear: undefined,
   updateNewdates: undefined,
@@ -58,6 +62,7 @@ const initialState = {
   updateSelectedkabupaten: undefined,
   updateSelectedareforscenario: undefined,
   updateClickedexportexcel: undefined,
+  updateViewchange: undefined,
 };
 
 export const MyContext = createContext<MyActionEventContextType>({
@@ -111,6 +116,7 @@ function App() {
   const [selectedkabupaten, setSelectedkabupaten] = useState<any>();
   const [selectedareaforscenario, setSelectedareaforscenario] = useState<any>();
   const [clickedexportexcel, setClickedexportexcel] = useState<boolean>(false);
+  const [viewchange, setViewchange] = useState<any>("arcgis-map");
 
   const updateStartyear = (newStartyear: any) => {
     setStartYear(newStartyear);
@@ -148,6 +154,10 @@ function App() {
     setClickedexportexcel(newClick);
   };
 
+  const updateViewchange = (newView: any) => {
+    setViewchange(newView);
+  };
+
   return (
     <>
       {loggedInState === true ? (
@@ -163,6 +173,7 @@ function App() {
               selectedkabupaten,
               selectedareaforscenario,
               clickedexportexcel,
+              viewchange,
               updateStartyear,
               updateEndyear,
               updateNewdates,
@@ -172,6 +183,7 @@ function App() {
               updateSelectedkabupaten,
               updateSelectedareforscenario,
               updateClickedexportexcel,
+              updateViewchange,
             }}
           >
             <ActionPanel />
@@ -179,6 +191,7 @@ function App() {
             <ChartPanel />
             <SelectedPointId />
             <ExportExcel />
+            {/* <ViewSwitch /> */}
           </MyContext>
         </CalciteShell>
       ) : (

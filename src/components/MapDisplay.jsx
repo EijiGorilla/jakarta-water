@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import "../index.css";
 import "../App.css";
 import "@arcgis/map-components/dist/components/arcgis-map";
@@ -20,10 +20,18 @@ import {
 } from "../layers";
 import "@esri/calcite-components/dist/components/calcite-button";
 import { object_id } from "../uniqueValues";
+import { MyContext } from "../App";
 
 function MapDisplay() {
+  const { viewchange } = use(MyContext);
+  const [viewState, setViewState] = useState("arcgis-map");
+
+  useEffect(() => {
+    setViewState(viewchange);
+  }, [viewchange]);
+
   const [mapView, setMapView] = useState();
-  const arcgisMap = document.querySelector("arcgis-map");
+  const arcgisMap = document.querySelector(viewchange);
   const arcgisMapLegend = document.querySelector("arcgis-legend");
   const arcgisSearch = document.querySelector("arcgis-search");
 
@@ -57,21 +65,45 @@ function MapDisplay() {
   });
 
   return (
-    <arcgis-map
-      // item-id="5ba14f5a7db34710897da0ce2d46d55f"
-      basemap="satellite"
-      ground="world-elevation"
-      //   viewingMode="local"
-      zoom="11"
-      center="106.8244387, -6.2392965"
-      onarcgisViewReadyChange={(event) => {
-        setMapView(event.target);
-      }}
-    >
-      <arcgis-search slot="top-right"></arcgis-search>
-      {/* Legend */}
-      <arcgis-legend slot="bottom-left" id="arcgis-map-legend"></arcgis-legend>
-    </arcgis-map>
+    <>
+      {viewState === "arcgis-map" ? (
+        <arcgis-map
+          basemap="satellite"
+          ground="world-elevation"
+          //   viewingMode="local"
+          zoom="11"
+          center="106.8244387, -6.2392965"
+          onarcgisViewReadyChange={(event) => {
+            setMapView(event.target);
+          }}
+        >
+          <arcgis-search slot="top-right"></arcgis-search>
+          {/* Legend */}
+          <arcgis-legend
+            slot="bottom-left"
+            id="arcgis-map-legend"
+          ></arcgis-legend>
+        </arcgis-map>
+      ) : (
+        <arcgis-scene
+          basemap="satellite"
+          ground="world-elevation"
+          viewingMode="local"
+          zoom="11"
+          center="106.8244387, -6.2392965"
+          onarcgisViewReadyChange={(event) => {
+            setMapView(event.target);
+          }}
+        >
+          <arcgis-search slot="top-right"></arcgis-search>
+          {/* Legend */}
+          <arcgis-legend
+            slot="bottom-left"
+            id="arcgis-map-legend"
+          ></arcgis-legend>
+        </arcgis-scene>
+      )}
+    </>
   );
 }
 
