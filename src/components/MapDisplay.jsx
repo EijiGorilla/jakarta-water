@@ -17,7 +17,6 @@ import {
   sar_points_layer,
   admin_boundary_kabupaten_for_scenario,
   admin_boundary_groupLayer,
-  layerInfos_sar,
 } from "../layers";
 import "@esri/calcite-components/dist/components/calcite-button";
 import { object_id } from "../uniqueValues";
@@ -26,11 +25,12 @@ import { MyContext } from "../App";
 function MapDisplay() {
   const { viewchange } = use(MyContext);
   const [mapView, setMapView] = useState();
-  const arcgisMap = document.querySelector(viewchange);
+
   // const arcgisMapLegend = document.querySelector("arcgis-legend");
   const arcgisSearch = document.querySelector("arcgis-search");
 
   useEffect(() => {
+    const arcgisMap = document.querySelector(viewchange);
     if (mapView) {
       arcgisMap.map.add(admin_boundary_groupLayer);
       arcgisMap.map.add(admin_boundary_kabupaten_for_scenario);
@@ -67,7 +67,6 @@ function MapDisplay() {
         <arcgis-map
           basemap="satellite"
           ground="world-elevation"
-          //   viewingMode="local"
           zoom="11"
           center="106.8244387, -6.2392965"
           onarcgisViewReadyChange={(event) => {
@@ -75,12 +74,6 @@ function MapDisplay() {
           }}
         >
           <arcgis-search slot="top-right"></arcgis-search>
-
-          {/* Legend */}
-          {/* <arcgis-legend
-            slot="bottom-left"
-            id="arcgis-map-legend"
-          ></arcgis-legend> */}
         </arcgis-map>
       ) : (
         <arcgis-scene
@@ -94,12 +87,6 @@ function MapDisplay() {
           }}
         >
           <arcgis-search slot="top-right"></arcgis-search>
-
-          {/* Legend */}
-          {/*<arcgis-legend
-            slot="bottom-left"
-            id="arcgis-map-legend"
-          ></arcgis-legend>*/}
         </arcgis-scene>
       )}
     </>

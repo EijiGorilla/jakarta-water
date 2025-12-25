@@ -15,10 +15,8 @@ import { MyContext } from "../App";
 
 export default function ReferencePointSubtraction() {
   const { updateReferenceid } = use(MyContext);
-  const [referenceid, setReferenceid] = useState<any>(undefined);
 
   const handleReferencePoint = (obj: any) => {
-    setReferenceid(obj);
     updateReferenceid(obj);
   };
 

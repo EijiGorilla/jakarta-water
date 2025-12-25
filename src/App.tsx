@@ -116,7 +116,7 @@ function App() {
   const [selectedkabupaten, setSelectedkabupaten] = useState<any>();
   const [selectedareaforscenario, setSelectedareaforscenario] = useState<any>();
   const [clickedexportexcel, setClickedexportexcel] = useState<boolean>(false);
-  const [viewchange, setViewchange] = useState<any>("arcgis-map");
+  const [viewchange, setViewchange] = useState<any>("arcgis-scene");
 
   const updateStartyear = (newStartyear: any) => {
     setStartYear(newStartyear);

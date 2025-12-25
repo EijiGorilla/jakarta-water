@@ -5,6 +5,7 @@ import { MyContext } from "../App";
 
 export default function ViewSwitch() {
   const { updateViewchange } = use(MyContext);
+
   return (
     <div
       style={{
@@ -17,16 +18,17 @@ export default function ViewSwitch() {
         paddingRight: "5px",
       }}
     >
-      3D off
+      3D on
       <CalciteSwitch
         onCalciteSwitchChange={(event: any) => {
           updateViewchange(
-            event.target.checked === false ? "arcgis-map" : "arcgis-scene"
+            event.target.checked === true ? "arcgis-map" : "arcgis-scene"
           );
+          // event.target.checked = !event.target.checked;
         }}
         style={{ padding: "5px" }}
       ></CalciteSwitch>{" "}
-      3D on
+      3D off
     </div>
   );
 }

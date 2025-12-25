@@ -22,7 +22,6 @@ import {
 import DatePicker from "./DatePicker";
 import VisibleLayers from "./VisibleLayers";
 import MinMaxRecord from "./MinMaxRecord";
-import ReferencePointSubtraction from "./ReferencePointSubtraction";
 import { layerInfos_sar } from "../layers";
 import { MyContext } from "../App";
 
@@ -185,7 +184,9 @@ function ActionPanel() {
         style={{ width: "20.8vw" }}
         hidden
       >
-        <arcgis-basemap-gallery referenceElement="arcgis-map"></arcgis-basemap-gallery>
+        <arcgis-basemap-gallery
+          referenceElement={viewchange}
+        ></arcgis-basemap-gallery>
       </CalcitePanel>
 
       <CalcitePanel heading="Description" data-panel-id="information" hidden>

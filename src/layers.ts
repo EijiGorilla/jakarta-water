@@ -13,6 +13,18 @@ import {
 } from "./uniqueValues";
 import GroupLayer from "@arcgis/core/layers/GroupLayer";
 
+// MRT
+// export const mrt_line_layer = new FeatureLayer({
+//   portalItem: {
+//     id: "cd4ad5ee791c4d32958a80b061c722fc",
+//     portal: {
+//       url: "https://gis.railway-sector.com/portal",
+//     },
+//   },
+//   popupEnabled: false,
+// });
+// mrt_line_layer.listMode = "hide";
+
 // layer title
 export const sar_point_layer_title = "Land Displacement (mm)";
 export const host_spot_analysis_layer_title = "Hot Spot Analysis";

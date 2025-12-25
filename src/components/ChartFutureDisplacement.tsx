@@ -31,7 +31,7 @@ export default function ChartFutureDisplacement() {
   const yAxisRef = useRef<unknown | any | undefined>({});
   const chartRef = useRef<unknown | any | undefined>({});
   const [chartData, setChartData] = useState([]);
-  const [exportExcel, setExportExcel] = useState<any>(false);
+  // const [exportExcel, setExportExcel] = useState<any>(false);
 
   const chartID = "lot-progress";
   useEffect(() => {
